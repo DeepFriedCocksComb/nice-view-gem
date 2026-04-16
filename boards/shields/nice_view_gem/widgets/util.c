@@ -83,14 +83,14 @@ void canvas_draw_line(lv_obj_t *canvas, const lv_point_t *points, uint32_t point
 }
 
 void canvas_draw_img(lv_obj_t *canvas, int32_t x, int32_t y, const void *src,
-                     lv_draw_image_dsc_t *img_dsc) {
+                     lv_draw_img_dsc_t *img_dsc) {
     lv_layer_t layer;
     lv_canvas_init_layer(canvas, &layer);
 
     const lv_image_dsc_t *img_src = (const lv_image_dsc_t *)src;
     img_dsc->src = img_src;
     lv_area_t coords = {x, y, x + img_src->header.w - 1, y + img_src->header.h - 1};
-    lv_draw_image(&layer, img_dsc, &coords);
+    lv_draw_img(&layer, img_dsc, &coords);
 
     lv_canvas_finish_layer(canvas, &layer);
 }
